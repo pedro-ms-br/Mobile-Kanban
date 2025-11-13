@@ -19,7 +19,7 @@ class RegisterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       _binding = FragmentRegisterBinding.inflate(inflater, containe, false)
+       _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
