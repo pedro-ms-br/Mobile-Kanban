@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.auth.RegisterFragment"
+    tools:context=".ui.auth.RecoverAccountFragment"
     android:fillViewport="true">
 
     <LinearLayout
@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Criar Conta"
+                android:text="Recuperar Conta"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"/>
 
@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             />
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,22 +52,6 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_edit_text"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Senha"
-            android:textColor="@color/white"
-            android:layout_marginTop="16dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="textPassword"
-            android:hint="Digite sua senha"
-            android:textColorHint="@color/slight_white"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
@@ -95,5 +78,5 @@
             android:indeterminateTint="@color/white"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"/>
-        </LinearLayout>
+    </LinearLayout>
 </ScrollView>
