@@ -32,6 +32,89 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
+    <EditText
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Status"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextDescricao"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewStatus">
+            <RadioButton
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:id="@+id/rbTodo"
+                android:text="A Fazer"
+                android:checked="false"
+                android:theme="@style/MyRadioButton"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                />
+
+            <RadioButton
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:id="@+id/rbDoing"
+                android:text="Fazendo"
+                android:checked="false"
+                android:theme="@style/MyRadioButton"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:id="@+id/rbDone"
+                android:text="Feito"
+                android:checked="false"
+                android:theme="@style/MyRadioButton"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textColor="@color/color_default"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/white"
+        android:visibility="invisible"
+        tools:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSave"/>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
