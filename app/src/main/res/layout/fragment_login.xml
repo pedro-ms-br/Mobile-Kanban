@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:id="@+id/LinearLayout"
         android:layout_width="0dp"
@@ -18,11 +17,7 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="25dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:textColor="@color/white"/>
+
 
         <EditText
             android:layout_width="match_parent"

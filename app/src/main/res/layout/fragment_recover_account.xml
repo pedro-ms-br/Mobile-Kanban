@@ -15,6 +15,7 @@
         android:id="@+id/LinearLayout1">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
@@ -23,9 +24,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recuperar Conta"
+                android:text="Recuperar Senha"
                 android:textColor="@color/white"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -84,7 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:indeterminateTint="@color/white"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                tools:visibility="visible"
+                android:visibility="invisible"/>
         </LinearLayout>
     </LinearLayout>
 
