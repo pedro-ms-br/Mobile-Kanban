@@ -21,7 +21,11 @@ class RegisterFragment : Fragment() {
     ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
-        initToolbar()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
     }
 
     override fun onDestroyView() {
