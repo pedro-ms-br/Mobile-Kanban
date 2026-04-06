@@ -79,7 +79,7 @@
                 android:buttonTint="@color/black"
                 android:id="@+id/rbTodo"
                 android:text="A Fazer"
-                android:checked="false"
+                android:checked="true"
                 android:theme="@style/MyRadioButton"
                 android:textColor="@color/white"
                 android:layout_weight="1"

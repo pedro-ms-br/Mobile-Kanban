@@ -5,27 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.pedroMoraes.kanban.R
-import com.pedroMoraes.kanban.databinding.FragmentRegisterBinding
+import com.pedroMoraes.kanban.databinding.FragmentFormTaskBinding
 import com.pedroMoraes.kanban.util.initToolbar
 
 
 class FormTaskFragment : Fragment() {
 
-    private var _binding: FragmentRegisterBinding? = null
+    private var _binding: FragmentFormTaskBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        _binding = FragmentFormTaskBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(binding.toolbar)
+        initListener()
+    }
+
+    private fun initListener() {
+        binding.buttonSave.setOnClickListener{
+            validateData()
+        }
+    }
+
+    private fun validateData(){
+        val descricao = binding.editTextDescricao.text.toString().trim()
+
+        if (descricao.isNotBlank()) {
+            Toast.makeText(requireContext(), "Tudo certo!", Toast.LENGTH_LONG).show()
+        } else {
+                Toast.makeText(requireContext(), "Digite uma descrição!", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onDestroyView() {
