@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun validateData(){
+    private fun validateData() {
         val email = binding.editTextEmail.text.toString().trim()
         val senha = binding.editTextSenha.text.toString().trim()
         if (email.isNotBlank()) {
