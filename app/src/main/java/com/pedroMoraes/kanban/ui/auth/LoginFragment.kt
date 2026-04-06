@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentLoginBinding
@@ -32,7 +33,7 @@ class LoginFragment : Fragment() {
 
     private fun initListener() {
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_global_homeFragment)
+            validateData()
         }
 
         binding.btnRegister.setOnClickListener {
@@ -43,6 +44,22 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
     }
+
+    private fun validateData(){
+        val email = binding.editTextEmail.text.toString().trim()
+        val senha = binding.editTextSenha.text.toString().trim()
+        if (email.isNotBlank()) {
+            if (senha.isNotBlank()) {
+                // comentario temporario somente para testar a vaidacao dos dados
+                findNavController().navigate(R.id.action_global_homeFragment)
+            } else {
+                Toast.makeText(requireContext(), "Preencha a senha!", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            Toast.makeText(requireContext(), "Preencha seu email!", Toast.LENGTH_LONG).show()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
