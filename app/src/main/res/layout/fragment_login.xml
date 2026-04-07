@@ -17,13 +17,18 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="25dp">
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_email"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"/>
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Digite seu e-mail"
+            android:hint="@string/text_hint_type_email"
             android:textColorHint="@color/slight_white"
             android:inputType="textEmailAddress"
             android:layout_marginTop="4dp"
@@ -33,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Senha"
+            android:text="@string/text_senha"
             android:textColor="@color/white"
             android:layout_marginTop="16dp"/>
 
@@ -42,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:inputType="textPassword"
-            android:hint="Digite sua senha"
+            android:hint="@string/text_hint_type_senha"
             android:textColorHint="@color/slight_white"
             android:textColor="@color/black"
             android:layout_marginTop="4dp"
@@ -53,7 +58,7 @@
             style="@style/ButtonTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/text_login"
             app:backgroundTint="@null"
             android:layout_marginTop="16dp"/>
 
@@ -67,7 +72,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Criar Conta"
+                android:text="@string/text_create_account"
                 android:layout_weight="1"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"/>
@@ -76,7 +81,7 @@
                 android:id="@+id/btnRecover"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recuperar Conta"
+                android:text="@string/text_recover_account"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"/>

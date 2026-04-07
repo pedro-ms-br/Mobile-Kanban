@@ -7,17 +7,41 @@
     <string name="status_task_todo">A Fazer</string>
     <string name="status_task_doing">Fazendo</string>
     <string name="status_task_done">Feito</string>
+
+    <!-- bottom sheet -->
     <string name="text_title_warning">Atenção</string>
     <string name="text_button_warning">Entendi</string>
 
     <!-- login fragment -->
     <string name="empty_email">Digite seu email!</string>
     <string name="empty_password">Digite a senha!</string>
+    <string name="text_hint_type_email">Digite seu e-mail</string>
+    <string name="text_email">E-mail</string>
+    <string name="text_senha">Senha</string>
+    <string name="text_hint_type_senha">Digite sua senha</string>
+    <string name="text_login">Login</string>
+    <string name="text_create_account">Criar Conta</string>
+    <string name="text_recover_account">Recuperar Conta</string>
+
 
     <!-- recover fragment -->
-
     <string name="empty_email_register_fragment">Digite um email válido!</string>
     <string name="empty_password_register_fragment">Digite uma senha!</string>
     <string name="empty_description_form_task_fragment">Digite uma descrição!</string>
+    <string name="text_message_placeholder">Mensagem</string>
+
+
+    <!-- form task fragment -->
+    <string name="text_new_task">Criar Nova Tarefa</string>
+    <string name="text_description">Descrição</string>
+    <string name="text_hint_new_task">Informe sua nova Tarefa</string>
+    <string name="text_save">Salvar</string>
+
+    <!-- recover account fragment -->
+    <string name="text_info_email_for_recover">Informe seu e-mail de cadastro para receber \n um link para alteração de senha</string>
+    <string name="text_send">Enviar</string>
+
+    <!-- splash fragment -->
+    <string name="text_students_name">Pedro Henrique Tavares Moraes</string>
 
 </resources>
