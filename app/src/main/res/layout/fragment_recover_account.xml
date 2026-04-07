@@ -56,14 +56,13 @@
 
             <EditText
                 android:id="@+id/editTextEmail"
+                style="@style/EditTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Digite seu e-mail"
                 android:textColorHint="@color/slight_white"
                 android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text"/>
+                android:layout_marginTop="4dp"/>
 
 
             <com.google.android.material.button.MaterialButton
