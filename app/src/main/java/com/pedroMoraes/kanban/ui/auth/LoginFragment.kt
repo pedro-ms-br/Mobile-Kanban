@@ -53,10 +53,10 @@ class LoginFragment : Fragment() {
                 // comentario temporario somente para testar a vaidacao dos dados
                 findNavController().navigate(R.id.action_global_homeFragment)
             } else {
-                showBottomSheet(message = R.string.empty_password)
+                showBottomSheet(message = getString(R.string.empty_password))
             }
         } else {
-            showBottomSheet(message = R.string.empty_email)
+            showBottomSheet(message = getString(R.string.empty_email))
         }
     }
 
