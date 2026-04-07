@@ -26,9 +26,9 @@
             android:hint="Digite seu e-mail"
             android:textColorHint="@color/slight_white"
             android:inputType="textEmailAddress"
-            android:padding="10dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            android:textColor="@color/black"
+            style="@style/EditTextTheme"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,9 +44,9 @@
             android:inputType="textPassword"
             android:hint="Digite sua senha"
             android:textColorHint="@color/slight_white"
-            android:padding="10dp"
+            android:textColor="@color/black"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            style="@style/EditTextTheme"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonLogin"
