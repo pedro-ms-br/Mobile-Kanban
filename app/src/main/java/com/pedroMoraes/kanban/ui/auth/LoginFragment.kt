@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentLoginBinding
+import com.pedroMoraes.kanban.util.showBottomSheet
 
 
 class LoginFragment : Fragment() {
@@ -53,10 +53,10 @@ class LoginFragment : Fragment() {
                 // comentario temporario somente para testar a vaidacao dos dados
                 findNavController().navigate(R.id.action_global_homeFragment)
             } else {
-                Toast.makeText(requireContext(), "Preencha a senha!", Toast.LENGTH_LONG).show()
+                showBottomSheet(message = R.string.empty_password)
             }
         } else {
-            Toast.makeText(requireContext(), "Preencha seu email!", Toast.LENGTH_LONG).show()
+            showBottomSheet(message = R.string.empty_email)
         }
     }
 

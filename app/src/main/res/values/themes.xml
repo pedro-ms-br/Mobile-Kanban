@@ -20,4 +20,13 @@
         <item name="colorControlActivated">@color/slight_white</item>
     </style>
 
+    <!-- estilo da bottom sheet dialog -->
+    <style name="bottomSheetDialogWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetDialogWrapper</item>
+    </style>
+
 </resources>

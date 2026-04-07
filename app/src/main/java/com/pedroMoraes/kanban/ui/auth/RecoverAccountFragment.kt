@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentRecoverAccountBinding
 import com.pedroMoraes.kanban.util.initToolbar
+import com.pedroMoraes.kanban.util.showBottomSheet
 
 
 class RecoverAccountFragment : Fragment() {
@@ -35,6 +36,7 @@ class RecoverAccountFragment : Fragment() {
         binding.buttonEnviar.setOnClickListener {
             validateData()
         }
+
     }
 
     private fun validateData(){
@@ -43,7 +45,7 @@ class RecoverAccountFragment : Fragment() {
             Toast.makeText(requireContext(), "Tudo Certo!", Toast.LENGTH_LONG).show()
 
         } else {
-            Toast.makeText(requireContext(), "Digite um email valido!", Toast.LENGTH_LONG).show()
+            showBottomSheet(message = R.string.empty_email)
         }
     }
 

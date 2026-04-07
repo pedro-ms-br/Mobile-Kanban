@@ -3,10 +3,21 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- status das tasks -->
     <string name="status_task_todo">A Fazer</string>
     <string name="status_task_doing">Fazendo</string>
     <string name="status_task_done">Feito</string>
-    <string name="text_title_warning">placeH - text_title_warning</string>
-    <string name="text_button_warning">placeH - text_button_warning</string>
+    <string name="text_title_warning">Atenção</string>
+    <string name="text_button_warning">Entendi</string>
+
+    <!-- login fragment -->
+    <string name="empty_email">Digite seu email!</string>
+    <string name="empty_password">Digite a senha!</string>
+
+    <!-- recover fragment -->
+
+    <string name="empty_email_register_fragment">Digite um email válido!</string>
+    <string name="empty_password_register_fragment">Digite uma senha!</string>
+    <string name="empty_description_form_task_fragment">Digite uma descrição!</string>
 
 </resources>

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentRegisterBinding
 import com.pedroMoraes.kanban.util.initToolbar
+import com.pedroMoraes.kanban.util.showBottomSheet
 
 
 class RegisterFragment : Fragment() {
@@ -45,10 +46,10 @@ class RegisterFragment : Fragment() {
             if (senha.isNotBlank()) {
                 Toast.makeText(requireContext(), "Tudo Certo!", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(requireContext(), "Digite uma senha valida!", Toast.LENGTH_LONG).show()
+                showBottomSheet(message = R.string.empty_password_register_fragment)
             }
         } else {
-            Toast.makeText(requireContext(), "Digite um email valido!", Toast.LENGTH_LONG).show()
+            showBottomSheet(message = R.string.empty_email_register_fragment)
         }
     }
 
