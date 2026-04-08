@@ -34,7 +34,8 @@ class TodoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
 
-        initRecyclerViewTask(getTask())
+        initRecyclerViewTask()
+        getTask()
     }
 
     private fun initListeners() {
@@ -43,13 +44,15 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask(taskList: List<Task>) {
+    private fun initRecyclerViewTask() {
 
-        taskAdapter = TaskAdapter(requireContext(),taskList) { task, option -> optionSelected(task, option)}
-        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewTask.setHasFixedSize(true)
+        taskAdapter = TaskAdapter(requireContext(), ) { task, option -> optionSelected(task, option)}
 
-        binding.recyclerViewTask.adapter = taskAdapter
+        with(binding.recyclerViewTask) {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = taskAdapter
+        }
 
     }
 
@@ -73,10 +76,12 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun getTask() = listOf(
-        Task("0","Pedro Henrique Tavares Moraes", Status.TODO)
-    )
-
+    private fun getTask() {
+        val taskList = listOf(
+            Task("0", "Pedro Henrique Tavares Moraes", Status.TODO)
+        )
+        taskAdapter.submitList(taskList)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

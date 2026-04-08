@@ -15,7 +15,6 @@ import com.pedroMoraes.kanban.databinding.ItemTaskBinding
 
 class TaskAdapter (
     private val context: Context,
-    private val taskList: List<Task>,
     private val taskSelected: (Task, Int) -> Unit
 ): ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -51,13 +50,11 @@ class TaskAdapter (
         return MyViewHolder(view)
     }
 
-    override fun getItemCount() = taskList.size
-
     override fun onBindViewHolder(
         holder: MyViewHolder,
         position: Int
     ) {
-        val task = taskList[position]
+        val task = getItem(position)
         holder.binding.textDescription.text = task.description
 
         setIndicators(task, holder)
