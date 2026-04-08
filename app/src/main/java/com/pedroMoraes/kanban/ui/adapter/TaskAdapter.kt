@@ -1,9 +1,7 @@
 package com.pedroMoraes.kanban.ui.adapter
 
-import android.R.attr.content
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
