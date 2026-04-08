@@ -35,6 +35,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageButton
+                android:layout_width="26dp"
+                android:layout_height="36dp"
+                android:id="@+id/buttonBack"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="@id/buttonEdit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/buttonEdit"
+                app:layout_constraintEnd_toStartOf="@id/buttonDelete"
+                app:tint="@color/color_default"
+                android:contentDescription="Anterior"/>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
@@ -62,7 +75,7 @@
                 android:textAllCaps="false"
                 android:textSize="12sp"
                 android:layout_marginTop="32dp"
-                android:layout_marginHorizontal="24dp"
+                android:layout_marginHorizontal="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buttonDetails"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -84,6 +97,20 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/buttonEdit"
                 app:layout_constraintTop_toTopOf="@+id/buttonEdit" />
+
+            <ImageButton
+                android:layout_width="26dp"
+                android:layout_height="36dp"
+                android:id="@+id/buttonForward"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_forward"
+                app:layout_constraintBottom_toBottomOf="@id/buttonEdit"
+                app:layout_constraintEnd_toEndOf="@id/ConstraintLayout2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/buttonDetails"
+                app:layout_constraintTop_toTopOf="@id/buttonEdit"
+                app:tint="@color/color_default"
+                android:contentDescription="Próximo"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
