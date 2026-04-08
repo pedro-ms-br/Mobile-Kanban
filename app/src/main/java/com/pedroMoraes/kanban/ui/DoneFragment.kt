@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pedroMoraes.kanban.R
+import com.pedroMoraes.kanban.data.model.Status
 import com.pedroMoraes.kanban.data.model.Task
 import com.pedroMoraes.kanban.databinding.FragmentDoneBinding
 import com.pedroMoraes.kanban.ui.adapter.TaskAdapter
@@ -34,7 +35,7 @@ class DoneFragment : Fragment() {
     }
     private fun initRecyclerViewTask(taskList: List<Task>) {
 
-        var taskAdapter = TaskAdapter(taskList)
+        taskAdapter = TaskAdapter(taskList)
         binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewTask.setHasFixedSize(true)
 
@@ -43,11 +44,7 @@ class DoneFragment : Fragment() {
     }
 
     private fun getTask() = listOf(
-        Task("0","Pedro Henrique Tavares Moraes"),
-        Task("1","Enviar fotos do mini terceirinho"),
-        Task("1","Terminar redação de Portugues"),
-        Task("2","Terminar de arrumar as malas"),
-        Task("1","Criar nova tela do app"),
+        Task("2","Terminar de arrumar as malas", Status.DONE)
     )
     override fun onDestroyView() {
         super.onDestroyView()
