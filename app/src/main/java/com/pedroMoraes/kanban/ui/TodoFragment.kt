@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pedroMoraes.kanban.R
+import com.pedroMoraes.kanban.data.model.Task
 import com.pedroMoraes.kanban.databinding.FragmentTodoBinding
+import com.pedroMoraes.kanban.ui.adapter.TaskAdapter
 
 
 class TodoFragment : Fragment() {
@@ -15,6 +18,7 @@ class TodoFragment : Fragment() {
     private var _binding: FragmentTodoBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var taskAdapter: TaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +31,8 @@ class TodoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
+
+        initRecyclerViewTask(getTask())
     }
 
     private fun initListeners() {
@@ -34,6 +40,24 @@ class TodoFragment : Fragment() {
             findNavController().navigate((R.id.action_homeFragment_to_formTaskFragment))
         }
     }
+
+        private fun initRecyclerViewTask(taskList: List<Task>) {
+
+            taskAdapter = TaskAdapter(taskList)
+            binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
+            binding.recyclerViewTask.setHasFixedSize(true)
+
+            binding.recyclerViewTask.adapter = taskAdapter
+
+        }
+
+        private fun getTask() = listOf(
+            Task("0","Pedro Henrique Tavares Moraes"),
+            Task("1","Enviar fotos do mini terceirinho"),
+            Task("1","Terminar redação de Portugues"),
+            Task("2","Terminar de arrumar as malas"),
+            Task("1","Criar nova tela do app"),
+        )
 
     override fun onDestroyView() {
         super.onDestroyView()
