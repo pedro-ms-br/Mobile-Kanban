@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "507554860072",
+    "project_id": "capitulo9-1afee",
+    "storage_bucket": "capitulo9-1afee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507554860072:android:f7c8ed51c9d45f46e0391d",
+        "android_client_info": {
+          "package_name": "com.mobile.capitulo9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh2rf6tTcrK8FQk8O5JOGJ3nHQgKCjAlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507554860072:android:0c06edfccee73b2fe0391d",
+        "android_client_info": {
+          "package_name": "com.pedroMoraes.Kanban"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh2rf6tTcrK8FQk8O5JOGJ3nHQgKCjAlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
