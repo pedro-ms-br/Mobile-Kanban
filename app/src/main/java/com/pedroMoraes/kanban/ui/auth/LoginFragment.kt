@@ -12,6 +12,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentLoginBinding
+import com.pedroMoraes.kanban.util.showBottomSheet
 
 
 class LoginFragment : Fragment() {

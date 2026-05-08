@@ -23,9 +23,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Criar Conta"
+                android:text="@string/text_create_account"
                 android:textColor="@color/white"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -39,24 +40,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-mail"
+            android:text="@string/text_email"
             android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Digite seu e-mail"
+            android:hint="@string/text_hint_type_email"
             android:textColorHint="@color/slight_white"
             android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            android:layout_marginTop="4dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Senha"
+            android:text="@string/text_senha"
             android:textColor="@color/white"
             android:layout_marginTop="16dp"/>
 
@@ -65,20 +64,16 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:inputType="textPassword"
-            android:hint="Digite sua senha"
+            android:hint="@string/text_hint_type_senha"
             android:textColorHint="@color/slight_white"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            android:layout_marginTop="4dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonEnviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enviar"
-            android:textColor="@color/color_default"
+            android:text="@string/text_send"
             app:backgroundTint="@null"
-            android:background="@drawable/bg_btn"
             android:layout_marginTop="16dp"/>
 
         <LinearLayout
