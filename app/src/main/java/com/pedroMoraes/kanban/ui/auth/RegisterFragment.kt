@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
@@ -36,7 +37,8 @@ class RegisterFragment : Fragment() {
 
         if (email.isNotBlank()) {
             if (senha.isNotBlank()){
-
+                // mostrar progress bar
+                binding.progressBar.isVisible = true
             } else {
                 // mostra mensagem
             }
@@ -57,6 +59,8 @@ class RegisterFragment : Fragment() {
                         // encaminha para tela de home
                         findNavController().navigate(R.id.action_global_homeFragment)
                     } else {
+                        //deu ruim
+                        binding.progressBar.isVisible = false
                         Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }.addOnFailureListener{
