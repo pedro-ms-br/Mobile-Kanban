@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentRegisterBinding
 
@@ -30,12 +31,15 @@ class RegisterFragment : Fragment() {
 
 
     private fun validateData() {
-        val email = binding.editTextEmail.text().toString().trim()
-        val senha = binding.editTextSenha.text().toString.trim()
+        val email = binding.editTextEmail.text.toString().trim()
+        val senha = binding.editTextSenha.text.toString().trim()
 
         if (email.isNotBlank()) {
-            // navegar coisas
-            // findNavController().navigate(R.id.)
+            if (senha.isNotBlank()){
+
+            } else {
+                // mostra mensagem
+            }
         } else {
             // coisas pra fazer se for vazio
         }
@@ -47,15 +51,20 @@ class RegisterFragment : Fragment() {
             val auth = FirebaseAuth.getInstance()
 
             // criando usuario no auth
-            auth.createUserWithEmailAndPAssword(email, senha)
-                .addCompleteListener{ task ->
-
+            auth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener{ task ->
+                    if (task.isSuccessful) {
+                        // encaminha para tela de home
+                        findNavController().navigate(R.id.action_global_homeFragment)
+                    } else {
+                        Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_SHORT).show()
+                    }
                 }.addOnFailureListener{
 
                 }
 
         } catch (e: Exception) {
-            Toast.makeText()
+            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
         }
 
     }
