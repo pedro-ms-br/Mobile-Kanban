@@ -18,10 +18,9 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-
     //variavel da database
-
     private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +29,16 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
+    }
 
+    private fun initListener() {
+        binding.buttonEnviar.setOnClickListener() {
+            validateData()
+        }
+    }
     private fun validateData() {
         val email = binding.editTextEmail.text.toString().trim()
         val senha = binding.editTextSenha.text.toString().trim()
@@ -64,7 +72,7 @@ class RegisterFragment : Fragment() {
                         Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }.addOnFailureListener{
-
+                    // deu ruim galera
                 }
 
         } catch (e: Exception) {
