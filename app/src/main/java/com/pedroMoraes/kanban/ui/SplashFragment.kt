@@ -46,7 +46,7 @@ class SplashFragment : Fragment() {
 
             if (currentUser != null) {
                 // vai pra home
-                findNavController().navigate(R.id.action_global_homeFragment)
+                findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
             } else {
                 // manda pra tela de login para o usuario se autenticar
                 findNavController().navigate(R.id.action_splashFragment_to_authentication)

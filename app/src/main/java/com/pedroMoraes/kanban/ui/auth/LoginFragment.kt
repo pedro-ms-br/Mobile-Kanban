@@ -38,9 +38,6 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListener() {
-        binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_global_homeFragment)
-        }
 
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
@@ -59,11 +56,28 @@ class LoginFragment : Fragment() {
             if (senha.isNotBlank()){
                 // mostrar progress bar
                 binding.progressBar.isVisible = true
+                loginUser(email, senha)
             } else {
                 // mostra mensagem show bottom shi
             }
         } else {
             // coisas pra fazer se for vazio
+        }
+    }
+
+    private fun loginUser(email: String, senha: String) {
+        try {
+            auth.signInWithEmailAndPassword(email, senha)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                    findNavController().navigate(R.id.action_global_homeFragment)
+                } else {
+                    Toast.makeText(requireContext(), task.exception?.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), e.message?.toString(), Toast.LENGTH_SHORT).show()
+
         }
     }
 
