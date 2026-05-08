@@ -31,7 +31,8 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar(binding.toolbar)
+        // initToolbar(binding.toolbar)
+        initListener()
     }
 
     private fun initListener() {
@@ -48,7 +49,7 @@ class RegisterFragment : Fragment() {
                 // mostrar progress bar
                 binding.progressBar.isVisible = true
             } else {
-                // mostra mensagem
+                // mostra mensagem show bottom shi
             }
         } else {
             // coisas pra fazer se for vazio

@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentLoginBinding
 
@@ -15,6 +19,8 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
+    // variavel da database
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +33,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = FirebaseAuth.getInstance() // vc precisa saber se ele ta logado antes
         initListener()
     }
 
@@ -43,6 +50,25 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
     }
+
+    private fun validateData() {
+        val email = binding.editTextEmail.text.toString().trim()
+        val senha = binding.editTextSenha.text.toString().trim()
+
+        if (email.isNotBlank()) {
+            if (senha.isNotBlank()){
+                // mostrar progress bar
+                binding.progressBar.isVisible = true
+            } else {
+                // mostra mensagem show bottom shi
+            }
+        } else {
+            // coisas pra fazer se for vazio
+        }
+    }
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
