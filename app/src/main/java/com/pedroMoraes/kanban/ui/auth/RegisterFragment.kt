@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentRegisterBinding
+import com.pedroMoraes.kanban.util.initToolbar
 
 
 class RegisterFragment : Fragment() {
@@ -31,7 +32,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // initToolbar(binding.toolbar)
+        initToolbar(binding.toolbar)
         initListener()
     }
 
@@ -48,6 +49,7 @@ class RegisterFragment : Fragment() {
             if (senha.isNotBlank()){
                 // mostrar progress bar
                 binding.progressBar.isVisible = true
+                registerUser(email, senha)
             } else {
                 // mostra mensagem show bottom shi
             }
