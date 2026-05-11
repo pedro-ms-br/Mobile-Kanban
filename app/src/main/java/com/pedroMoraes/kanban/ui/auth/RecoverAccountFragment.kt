@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
@@ -34,6 +35,9 @@ class RecoverAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(binding.toolbar)
+
+        auth = FirebaseAuth.getInstance()
+
         initListener()
     }
 
@@ -46,11 +50,29 @@ class RecoverAccountFragment : Fragment() {
 
     private fun validateData(){
         val email = binding.editTextEmail.text.toString().trim()
+
         if (email.isNotBlank()) {
-            Toast.makeText(requireContext(), "Tudo Certo!", Toast.LENGTH_LONG).show()
+            binding.progressBar.isVisible = true
+            recoverAccountUser(email)
 
         } else {
             showBottomSheet(message = getString(R.string.empty_email))
+        }
+    }
+
+    private fun recoverAccountUser(email: String) {
+        try{
+            auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener { task ->
+                    binding.progressBar.isVisible = false
+                    if (task.isSuccessful) {
+                        showBottomSheet(message = getString(
+                            R.string.text_message_recover_account_fragment)
+                        )
+                    }
+                }
+        } catch (e:Exception) {
+            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
