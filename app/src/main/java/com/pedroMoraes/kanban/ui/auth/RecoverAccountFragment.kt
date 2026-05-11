@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.pedroMoraes.kanban.R
 import com.pedroMoraes.kanban.databinding.FragmentRecoverAccountBinding
 import com.pedroMoraes.kanban.util.initToolbar
@@ -18,6 +20,8 @@ class RecoverAccountFragment : Fragment() {
 
     private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
