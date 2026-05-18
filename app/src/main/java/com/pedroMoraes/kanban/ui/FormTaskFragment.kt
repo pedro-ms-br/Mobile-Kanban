@@ -58,13 +58,30 @@ class FormTaskFragment : Fragment() {
         binding.buttonSave.setOnClickListener{
             validateData()
         }
+
+        // evento que monitora a mudanca de escolha do radiogroup
+        binding.radioGroup.setOnCheckedChangeListener { _, id ->
+            status = when(id){
+                R.id.rbTodo -> Status.TODO
+                R.id.rbDoing -> Status.DOING
+                    else -> Status.DONE
+            }
+        }
     }
 
     private fun validateData(){
         val descricao = binding.editTextDescricao.text.toString().trim()
 
         if (descricao.isNotBlank()) {
-            Toast.makeText(requireContext(), "Tudo certo!", Toast.LENGTH_LONG).show()
+            binding.progressBar.isVisible = true
+
+            if (newTask) task = Task()
+            task.id = reference.database.reference.push().key ?:""
+            task.description = descricao
+            task.status = status
+
+            saveTask()
+
         } else {
                 showBottomSheet(message = getString(R.string.empty_description_form_task_fragment))
         }
