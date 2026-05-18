@@ -49,8 +49,8 @@ class TodoFragment : Fragment() {
         auth = Firebase.auth
 
         initListeners()
-        initRecyclerViewTask()
-        getTask()
+        initRecyclerViewTask(getTask())
+
     }
 
     private fun initListeners() {
@@ -59,7 +59,7 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask() {
+    private fun initRecyclerViewTask(taskList: List<Task>) {
 
         taskAdapter = TaskAdapter(requireContext()) { task, option -> optionSelected(task, option)}
 
