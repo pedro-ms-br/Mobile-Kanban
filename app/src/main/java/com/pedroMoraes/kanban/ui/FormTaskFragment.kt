@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -67,7 +70,32 @@ class FormTaskFragment : Fragment() {
         }
     }
 
+    private fun saveTask() {
+        reference.child("task")
+            .child(auth.currentUser?.uid ?: "")
+            .child(task.id)
+            .setValue(task).addOnCompleteListener { result ->
+                if (result.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.text_save_sucess_form_task_fragment,
+                        Toast.LENGTH_SHORT
+                    ).show()
 
+                    if (newTask) {
+                        // criando nova tarefa
+                        findNavController().popBackStack()
+                    } else {
+                        // editando tarefa
+                        binding.progressBar.isVisible = false
+                    }
+                } else {
+                    binding.progressBar.isVisible = false
+                    showBottomSheet(message = getString(R.string.error_generic))
+                }
+
+            }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
