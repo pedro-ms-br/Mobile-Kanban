@@ -17,7 +17,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.pedroMoraes.kanban.R
-import com.pedroMoraes.kanban.data.model.Status
 import com.pedroMoraes.kanban.data.model.Task
 import com.pedroMoraes.kanban.databinding.FragmentTodoBinding
 import com.pedroMoraes.kanban.ui.adapter.TaskAdapter
