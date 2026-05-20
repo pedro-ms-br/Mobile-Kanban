@@ -49,7 +49,10 @@ class TodoFragment : Fragment() {
         auth = Firebase.auth
 
         initListeners()
-        initRecyclerViewTask(getTask())
+        initRecyclerViewTask(emptyList())
+        getTask()
+        // initRecyclerViewTask(getTask())
+
 
     }
 
@@ -93,11 +96,13 @@ class TodoFragment : Fragment() {
 
     private fun getTask() {
         reference
-            .child("tasks")
+            .child("task")
             .child(auth.currentUser?.uid ?: "")
             .addValueEventListener(object: ValueEventListener{
                 override fun onDataChange(p0: DataSnapshot) {
                     val taskList = mutableListOf<Task>()
+
+                    android.util.Log.d("FIREBASE_TESTE", "Quantidade de tarefas encontradas: ${p0.childrenCount}")
 
                     for (ds in p0.children) {
                         val task = ds.getValue(Task::class.java) as Task
