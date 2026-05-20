@@ -40,6 +40,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/text_nome_aluno"
+            android:textColor="@color/white"
+            android:paddingBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/text_email"
             android:textColor="@color/white"/>
 
@@ -50,7 +57,9 @@
             android:hint="@string/text_hint_type_email"
             android:textColorHint="@color/slight_white"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            style="@style/EditTextTheme"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +75,10 @@
             android:inputType="textPassword"
             android:hint="@string/text_hint_type_senha"
             android:textColorHint="@color/slight_white"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            style="@style/EditTextTheme"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonEnviar"
@@ -74,7 +86,8 @@
             android:layout_height="wrap_content"
             android:text="@string/text_send"
             app:backgroundTint="@null"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            style="@style/ButtonTheme"/>
 
         <LinearLayout
             android:layout_width="match_parent"
