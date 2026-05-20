@@ -8,8 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.database
 import com.pedroMoraes.kanban.R
-import com.pedroMoraes.kanban.data.model.Status
 import com.pedroMoraes.kanban.data.model.Task
 import com.pedroMoraes.kanban.databinding.FragmentTodoBinding
 import com.pedroMoraes.kanban.ui.adapter.TaskAdapter
@@ -22,6 +29,10 @@ class TodoFragment : Fragment() {
 
     private lateinit var taskAdapter: TaskAdapter
 
+    // objetos do banco de dados
+    private lateinit var reference: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,10 +43,16 @@ class TodoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initListeners()
 
-        initRecyclerViewTask()
+        reference = Firebase.database.reference
+        auth = Firebase.auth
+
+        initListeners()
+        initRecyclerViewTask(emptyList())
         getTask()
+        // initRecyclerViewTask(getTask())
+
+
     }
 
     private fun initListeners() {
@@ -44,9 +61,9 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask() {
+    private fun initRecyclerViewTask(taskList: List<Task>) {
 
-        taskAdapter = TaskAdapter(requireContext(), ) { task, option -> optionSelected(task, option)}
+        taskAdapter = TaskAdapter(requireContext()) { task, option -> optionSelected(task, option)}
 
         with(binding.recyclerViewTask) {
             layoutManager = LinearLayoutManager(requireContext())
@@ -77,10 +94,28 @@ class TodoFragment : Fragment() {
     }
 
     private fun getTask() {
-        val taskList = listOf(
-            Task("0", "Pedro Henrique Tavares Moraes", Status.TODO)
-        )
-        taskAdapter.submitList(taskList)
+        reference
+            .child("task")
+            .child(auth.currentUser?.uid ?: "")
+            .addValueEventListener(object: ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    val taskList = mutableListOf<Task>()
+
+                    android.util.Log.d("FIREBASE_TESTE", "Quantidade de tarefas encontradas: ${p0.childrenCount}")
+
+                    for (ds in p0.children) {
+                        val task = ds.getValue(Task::class.java) as Task
+                        taskList.add(task)
+                    }
+                    taskAdapter.submitList(taskList)
+
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                    Toast.makeText(requireContext(), R.string.error_generic, Toast.LENGTH_SHORT).show()
+                }
+
+            })
     }
     override fun onDestroyView() {
         super.onDestroyView()

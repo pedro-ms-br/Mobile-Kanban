@@ -5,9 +5,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Task (
-    val id: String,
-    val description: String,
+    var id: String = "",
+    var description: String = "",
     // cria com to do por padrao
-    val status: Status = Status.TODO
+    var status: Status = Status.TODO
 
 ):Parcelable

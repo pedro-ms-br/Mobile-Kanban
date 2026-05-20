@@ -70,7 +70,8 @@ class DoingFragment : Fragment() {
         val taskList = listOf(
             Task("1", "Enviar fotos do mini terceirinho", Status.DOING),
             Task("1", "Terminar redação de Portugues", Status.DOING),
-            Task("1", "Criar nova tela do app", Status.DOING)
+            Task("1", "Criar nova tela do app", Status.DOING),
+            Task("1", "Pedro Henrique Tavares Moraes", Status.DOING)
         )
         taskAdapter.submitList(taskList)
     }
