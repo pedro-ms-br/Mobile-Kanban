@@ -50,7 +50,7 @@ class TodoFragment : Fragment() {
         initListeners()
         initRecyclerViewTask(emptyList())
         getTask()
-        // initRecyclerViewTask(getTask())
+
 
 
     }
